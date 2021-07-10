@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a9a20b01b1.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>iWeather</title>
+  </head>
+  <body onload="return staticWeather();">
+    <div class="d-flex flex-column flex-sm-row vh-100">
+      <div id="main">
+        <div class="container">
+          <div id="appTitle">
+            <div class="float-start" style="font-size: 20px; font-weight:300">iWeather</div>
+            <div class="d-flex justify-content-end">
+                <table>
+                  <tr>
+                    <td rowspan="2" style="padding: 10px;">
+                      <i class="fas fa-map-marker-alt" style="font-size: 20px;"></i>
+                    </td>
+                    <td style="padding-right: 20px;">
+                      <div style="font-size: 12px; font-weight:300">Current Location</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div id="location" style="font-size: 16px; font-weight:500">Undefined</div>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+          <div id="searchPart">
+            <div style="font-size: 18px; font-weight:300">The Only Weather App You Need</div>
+            <div id="horizontaLine"></div>
+            <div class="d-flex w-50" id="locationSearch">
+              <input type="text" id="place" placeholder="Enter location" style="background-color: transparent; color:white; border: 0px solid transparent; padding: 10px; width: 100%;">
+              <button onclick="return getWeather();" style="background-color: transparent; color:white; border: 0px solid transparent;">
+                <i class="fas fa-search" style="padding: 10px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="dataCol">
+        <p id="lable">Today</p>
+        <div id="topCard">
+          <div class="card m-3" style="max-width: 640px;border:0px solid transparent; border-radius:10px; box-shadow:0px 0px 20px rgba(0, 0, 0, 0.199);">
+            <div class="row g-0 m-3">
+              <div class="col-md-4" id="cityIcon">
+                <div id="cityIcondata">
+                  <div id="cityTemp">
+                  </div>
+                  <div id="weatherImage">
+                    <img src="images/icon3.png" style="width:85px; height:auto;" alt="" >
+                  </div>
+                  <div id="date">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div id="cardBody">
+                  <div class="card-title">
+                    <div id="cityName">
+                      iWeather
+                    </div>
+                    <div id="country">
+                    </div>
+                  </div>
+                  <p class="card-text">
+                    <div id="cityWeather">
+                      The Weather brought to you in a simple way! Check the weather and AQI! Don’t miss out on details such as wind info.
+                      <br>
+                      <br>
+                      Free in Weather<br>                   
+                      • Wind direction & Speed details<br>                    
+                      • Humidity, Pressure and AQI details<br>                    
+                      • Feels like temperature<br>                    
+                      • Supports Mobiles & Laptops
+                    </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p id="lable">Cities</p>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner" align="center">
+              <div class="carousel-item active">
+                <div class="card m-3" id="card1">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <div id="card-data1">
+                        <div id="statiCity1">
+                        </div>
+                        <div id="statiCountry1">
+                        </div>
+                        <div id="staticTemp1">
+                        </div>
+                        <div id="staticWeather1">
+                        </div>
+                        <div id="don1">
+                        </div>
+                      </div>
+                    </p>
+                  </div> 
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card m-3" id="card2">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <div id="card-data2">
+                        <div id="statiCity2">
+                        </div>
+                        <div id="statiCountry2">
+                        </div>
+                        <div id="staticTemp2">
+                        </div>
+                        <div id="staticWeather2">
+                        </div>
+                        <div id="don2">
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card m-3" id="card3">
+                  <div class="card-body">
+                    <p class="card-text">
+                      <div id="card-data3">
+                        <div id="statiCity3">
+                        </div>
+                        <div id="statiCountry3">
+                        </div>
+                        <div id="staticTemp3">
+                        </div>
+                        <div id="staticWeather3">
+                        </div>
+                        <div id="don3">
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
