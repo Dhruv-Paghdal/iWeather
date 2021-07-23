@@ -15,7 +15,9 @@ let mainData;
 let aqiData;
 
 function staticWeather(){
-
+    
+    document.getElementById("aqiButton").disabled=True;
+    
     const api1=`https://api.weatherapi.com/v1/current.json?key=600665fe54fb4b51897145813210707&q=london&aqi=no`;
     const api2=`https://api.weatherapi.com/v1/current.json?key=600665fe54fb4b51897145813210707&q=new_york&aqi=no`;
     const api3=`https://api.weatherapi.com/v1/current.json?key=600665fe54fb4b51897145813210707&q=paris&aqi=no`;
@@ -91,6 +93,9 @@ function staticWeather(){
 }
 
 function getWeather(){
+    
+    document.getElementById("aqiButton").disables=False;
+    
     let location=document.getElementById("place").value;
     let location1=location.toLowerCase();
 
@@ -165,6 +170,9 @@ function getWeather(){
 }
 
 function getPosition(){
+    
+    document.getElementById("aqiButton").disabled=False;
+    
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition);
     }
